@@ -1,0 +1,40 @@
+import time
+
+def print_delayed(msg, delay=2):
+    time.sleep(delay)
+    print(msg)
+
+print_delayed("This quiz will contain a total of 10 questions")
+print_delayed("\n")
+name = input("Enter your name: ")
+print_delayed("\n")
+total_score = 0
+
+def check_answer(question, correct_option):
+    user_input = input(question)
+    if user_input == correct_option:
+        print_delayed("\033[92mCorrect\n\033[0m", delay=2)  # Correct answer in green
+        return True
+    else:
+        print_delayed("\033[91mYour answer is incorrect, the correct answer is '" + correct_option + "'\033[0m", delay=2)  # Incorrect answer in red
+        return False
+
+questions = [
+    ("Question 1:\nWhich language has the most native speakers? \n1) English \n2) Chinese \n3) Spanish \n4) Arabic \nEnter your option here: ", "2"),
+    ("Question 2:\nWhich planet has the most moons? \n1) Jupiter \n2) Neptune \n3) Uranus \n4) Saturn \nEnter your option here: ", "4"),
+    ("Question 3:\nThe basic units of an Excel spreadsheet where we enter data are called? \n1) Cell \n2) Tab \n3) Box \n4) None of the above \nEnter your option here: ", "1"),
+    ("Question 4:\nWhat is the full form of JAVA? \n1) Just Another Very Advanced \n2) JavaScript And Visual Applications \n3) Java Application Virtual Architecture \n4) None of the above \nEnter your option here: ", "4"),
+    ("Question 5:\nWhich one is the first fully supported 64-bit operating system? \n1) Windows Vista \n2) Mac \n3) Linux \n4) Windows XP \nEnter your option here: ", "3"),
+    ("Question 6:\nComputer Hard disk was first introduced in 1956 by? \n1) Dell \n2) IBM \n3) Microsoft \n4) Apple \nEnter your option here: ", "2"),
+    ("Question 7:\nIn the computer world, Trojan refers to? \n1) Virus \n2) Malware \n3) Worm \n4) Spyware \nEnter your option here: ", "2"),
+    ("Question 8:\nWhich of the following is a programming language? \n1) HTML \n2) HTTP \n3) HPML \n4) FTP \nEnter your option here: ", "1"),
+    ("Question 9:\nWhich protocol is used to send e-mail? \n1) HTTP \n2) POP3 \n3) SMTP \n4) SSH \nEnter your option here: ", "3"),
+    ("Question 10:\nWhich computer program converts assembly language to machine language? \n1) Interpreter \n2) Compiler \n3) Assembler \n4) Comparator \nEnter your option here: ", "3")
+]
+
+for q, a in questions:
+    if check_answer(q, a):
+        total_score += 1
+
+print_delayed("\n")
+print_delayed(name + ", your total score is: " + str(total_score), delay=2)
